@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://5h0tabif1icr"]
+
+[ext_resource type="Script" path="res://dd.gd" id="1_hg12h"]
+[ext_resource type="Texture2D" uid="uid://ssqqodwje0eo" path="res://node.png" id="2_tmltg"]
+[ext_resource type="PackedScene" uid="uid://b1j6lfds4g2sa" path="res://ss.tscn" id="3_j56fb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_melxb"]
+radius = 5.0
+
+[node name="dd" type="Area2D"]
+script = ExtResource("1_hg12h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("2_tmltg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("2_tmltg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_melxb")
+
+[node name="qq" parent="." instance=ExtResource("3_j56fb")]
+position = Vector2(24, -32)
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 24, -32)
+width = 3.0
+default_color = Color(0, 0.498039, 1, 1)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
